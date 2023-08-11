@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
     res.sendFile(loginHTMLpath);
 });
 
-app.post('https://trivia-unlp.netlify.app/trivia/board', crear);
+app.post('/trivia/board', crear);
 app.patch('/trivia/board/:boardId', unirse);
 app.post('/trivia/board/:boardId/prepare', preparar);
 app.post('/trivia/board/:boardId', play);

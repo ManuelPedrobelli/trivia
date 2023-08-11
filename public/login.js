@@ -1,6 +1,5 @@
 const init = () => {
   document.getElementById('login-form').addEventListener('submit', unirsePartida);
-  alert("asd");
 }
 
 const crearPartida = () => {
@@ -19,7 +18,7 @@ const crearPartida = () => {
           showLoaderOnConfirm: true,
           backdrop: true,
           preConfirm: (name) => {
-            return fetch('https://trivia-unlp.netlify.app/trivia/board', {
+            return fetch('/trivia/board', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
