@@ -1,12 +1,10 @@
 # netlify.toml
 
-# Configuración para redirecciones
 [[redirects]]
   from = "/*"
-  to = "/login.html"  # Ruta relativa a la carpeta login dentro de public
+  to = "/public/login.html"  # Ruta relativa a la carpeta login dentro de public
   status = 200
 
 [build]
-  command = "npm start"  # Agrega el comando para construir y ejecutar tu proyecto
-
-publish = "/public"  # Cambia esto si la carpeta de compilación es diferente
+  command = "npm start"  # Cambia esto si es necesario
+  publish = "public"  # Cambia esto si la carpeta de compilación es diferente
