@@ -1,5 +1,6 @@
 const init = () => {
   document.getElementById('login-form').addEventListener('submit', unirsePartida);
+  alert("asd");
 }
 
 const crearPartida = () => {
