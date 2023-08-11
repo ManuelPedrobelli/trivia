@@ -1,0 +1,7 @@
+[build]
+  publish = "public"  # Ruta relativa a la carpeta de archivos estáticos
+
+[[redirects]]
+  from = "/*"
+  to = "/login.html"  # Cambia esto para que apunte a tu página inicial
+  status = 200

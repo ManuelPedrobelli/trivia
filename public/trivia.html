@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="../public/img/peakpx.jpg">
+      <title>Trivia!</title>
+      <link rel="stylesheet" href="trivia.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+   </head>
+   <body onload="init()">
+
+      <div id="contenedor_main" class="animate__animated animate__slideInUp">
+         
+         <div id="game">
+            
+            <div id="cont-1">
+               <div id="contenedor-player">
+                  <p class="player" id="p1"></p>
+                  <p class="aux casillero" data-pos="0" id="casillero-0">LARGADA</p>
+                  <p class="player" id="p2"></p>
+               </div>
+               <div class="tablero">
+                  <div data-pos="1"  class="casillero">1</div>
+                  <div data-pos="2" class="casillero">2</div>
+                  <div data-pos="3" class="casillero">3</div>
+                  <div data-pos="4" class="casillero">4</div>
+                  <div data-pos="5" class="casillero">5</div>
+                  <div data-pos="6" class="casillero">6</div>
+                  <div data-pos="7" class="casillero">7</div>
+                  <div data-pos="8" class="casillero">8</div>
+                  <div data-pos="9" class="casillero">9</div>
+                  <div data-pos="10" class="casillero">10</div>
+                  <div data-pos="11" class="casillero">11</div>
+                  <div data-pos="12" class="casillero">12</div>
+                  <div data-pos="13" class="casillero">13</div>
+                  <div data-pos="14" class="casillero">14</div>
+                  <div data-pos="15" class="casillero">15</div>
+                  <div data-pos="16" class="casillero">16</div>
+                  <div data-pos="17" class="casillero">17</div>
+                  <div data-pos="18" class="casillero">18</div>
+                  <div data-pos="19" class="casillero">19</div>
+                  <div data-pos="20" class="casillero">20</div>
+               </div>
+               <p class="aux casillero" data-pos="21" id="casillero-21">GANADOR</p>
+            </div>
+           
+            <div id="cont-2">
+              
+               <div id="contenedor-dado">
+                  <audio id="audio-dado" class="audio" controls>
+                     <source type="audio/mp3" src="audio/roll Dice.mp3">
+                  </audio>
+                  <div id="dado" > 
+                     <img id="img-dado" class="animate__animated" src="https://cdn.pixabay.com/photo/2022/03/13/14/37/backgammon-7066192_1280.png">
+                  </div>
+                  <button id="boton-dado">Tirar dado</button>   
+                  <p id="turno"></p>
+               </div>
+               
+               <div id="contenedor-pregunta" >
+                  <p id="pregunta-actual"></p>
+                  <div id="contenedor-opciones" style="display: none;">
+                     <div class="opcion">
+                        <input type="radio" id="opcion1" name="opciones" value="value1">
+                        <label for="opcion1">
+                           <p id="op1"></p>
+                        </label>
+                     </div>
+                     <div class="opcion">
+                        <input type="radio" id="opcion2" name="opciones" value="value2">
+                        <label for="opcion2">
+                           <p id="op2"></p>
+                        </label>
+                     </div>
+                     <div class="opcion">
+                        <input type="radio" id="opcion3" name="opciones" value="value3">
+                        <label for="opcion3">
+                           <p id="op3"></p>
+                        </label>
+                     </div>
+                     <button type="submit" id="boton-contestar">Contestar</button> 
+                  </div>
+               </div>
+            </div>
+            
+            <audio id="audio-winner" class="audio" controls>
+               <source type="audio/mp3" src="audio/winner.mp3">
+            </audio>
+            <audio id="audio-correcta" class="audio" controls>
+               <source type="audio/mp3" src="audio/Ta da.mp3">
+            </audio>
+            <audio id="audio-incorrecta" class="audio" controls>
+               <source type="audio/wav" src="audio/wrong.wav">
+            </audio>
+            <audio id="audio-error" class="audio" controls>
+               <source type="audio/wav" src="audio/error.wav">
+            </audio>
+         </div>
+      </div>
+      <!-- game -->
+      </div> <!-- container -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+      <script src="trivia.js"></script>
+   </body>
+</html>

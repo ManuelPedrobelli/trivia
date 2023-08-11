@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Montserrat&display=swap');
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+body {
+  background-image: url(../img/red-casino-dice-poker-table.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-size: 2rem;
+  }
+  input[type="text"] {
+    padding: 12px;
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: 1rem;
+  }
+  button {
+    padding: 10px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    width: 180px;
+  }
+  button:hover {
+    background-color: #ff3e3e;
+  }
+h3 {
+  font-size: 20px;
+  padding: 10px;
+  margin: 0;
+}
+h2 {
+  font-size: 35px;
+}
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+p { 
+  font-size: 20px;
+  color: white; 
+}
+#contenedor {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  height: 65vh;
+  background-color: rgba(0, 0, 0, 0.933); 
+  width: 80%;
+  margin: 0 auto; 
+  gap: 20px;
+}
+#contenedor-1, #contenedor-2 {
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+#contenedor-2 {
+  line-height: 28px;
+  align-items: center;
+  justify-content: start;
+  flex: 2;
+  max-width: 28rem;
+  padding: 10px;
+  background-color: rgba(0, 255, 255, 0.507);
+}
+#contenedor-1 {
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+  padding: 20px;
+}
+footer, h1 {
+  color: yellow;
+  background-color: rgba(0, 0, 0, 0.649);
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px auto;
+}
