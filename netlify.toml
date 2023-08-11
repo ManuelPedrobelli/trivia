@@ -1,4 +1,11 @@
+# netlify.toml
+
+# Configuración para redirecciones
 [[redirects]]
   from = "/*"
   to = "/login/login.html"  # Ruta relativa a la carpeta login dentro de public
   status = 200
+
+# Configuración de publicación
+[build]
+  base = "public"  # Carpeta base desde la que se realizará la publicación
