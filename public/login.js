@@ -38,7 +38,7 @@ const crearPartida = () => {
                     text: 'Codigo de mesa: ' + data.boardId,
                     backdrop: true,
                 }).then(() => {
-                    window.location.href = '../trivia.html';
+                    window.location.href = '/trivia.html';
                 });
             })
             .catch(error => {
