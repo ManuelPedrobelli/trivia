@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/*"
-  to =  "https://trivia-unlp.netlify.app/login.html" # Cambia esto para que apunte a tu página inicial
+  to = "/login/login.html"  # Ruta relativa a la carpeta login dentro de public
   status = 200
