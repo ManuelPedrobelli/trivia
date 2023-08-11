@@ -6,4 +6,4 @@
   to = "/login.html"  # Ruta relativa a la carpeta login dentro de public
   status = 200
 
-publish = "public"  # Cambia esto si la carpeta de compilación es diferente
+publish = "/public"  # Cambia esto si la carpeta de compilación es diferente
