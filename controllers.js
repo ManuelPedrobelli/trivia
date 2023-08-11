@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
     res.sendFile(loginHTMLpath);
 });
 
-app.post('/trivia/board', crear);
+app.post('https://trivia-unlp.netlify.app/trivia/board', crear);
 app.patch('/trivia/board/:boardId', unirse);
 app.post('/trivia/board/:boardId/prepare', preparar);
 app.post('/trivia/board/:boardId', play);
@@ -40,6 +40,7 @@ app.get('/trivia/board/:boardId', estado);
 app.listen(PORT, () => console.log(`Trivia iniciado. ctrl + click -> : localhost:${PORT}`));
 
 function crear(req, res) {
+    console.log('llega a ejecutar');
     let board = trivia.new(req.body.nombre, req.body.color);
     if (board.error) {
         res.status(400).json(board);
