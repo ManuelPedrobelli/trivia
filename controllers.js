@@ -5,9 +5,9 @@ const trivia = require('./trivia.js');
 const app = express();
 const PORT = 5000;
 const path = require('path');
-const loginCSSpath = path.join(__dirname, 'public', 'login', 'login.css');
-const loginJSpath = path.join(__dirname, 'public', 'login', 'login.js');
-const loginHTMLpath = path.join(__dirname, 'public', 'login', 'login.html');
+const loginCSSpath = path.join(__dirname, 'public', 'login.css');
+const loginJSpath = path.join(__dirname, 'public', 'login.js');
+const loginHTMLpath = path.join(__dirname, 'public', 'login.html');
 
 app.use(express.static('public'));
 app.use(express.urlencoded({
