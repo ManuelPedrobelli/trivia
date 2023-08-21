@@ -5,7 +5,8 @@
   "main": "controllers.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon controllers.js"
+    "start": "nodemon controllers.js",
+    "build": "run build"
   },
   "keywords": [
     "UNLP",

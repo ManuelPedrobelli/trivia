@@ -1,9 +1,0 @@
-# Redirecciones para las rutas de la API
-/post /trivia/board 200
-/patch /trivia/board/:boardId 200
-/post /trivia/board/:boardId/prepare 200
-/post /trivia/board/:boardId 200
-/get /trivia/board/:boardId 200
-
-# Reescritura para cualquier otra ruta
-/* /index.html 200
