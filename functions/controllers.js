@@ -1,16 +1,16 @@
 'use strict'
 
 const express = require('express');
+const serverless = require('serverless-http');
+const router = express.Router();
 const trivia = require('./trivia.js');
 const app = express();
 const PORT = 5000;
-const cors = require('cors'); // Importa el paquete cors
 const path = require('path');
 const loginCSSpath = path.join(__dirname, 'public', 'login.css');
 const loginJSpath = path.join(__dirname, 'public', 'login.js');
 const loginHTMLpath = path.join(__dirname, 'public', 'login.html');
 
-app.use(cors()); // Usa cors para permitir solicitudes de todos los dominios
 app.use(express.static('public'));
 app.use(express.urlencoded({
     extended: true
@@ -85,3 +85,6 @@ function estado(req, res) {
         res.json(board);
     }
 }
+
+app.use('/.netlify/functions/controllers.js', router);
+module.exports.handler = serverless(app);
