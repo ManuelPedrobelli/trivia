@@ -9,9 +9,9 @@ module.exports = {
     play: play,
     poll: poll
 };
-
-const pathDatabase = path.join(__dirname, 'data', 'database.json');
-const pathPreguntas = path.join(__dirname, 'data', 'preguntas.json');
+const absoluteDataFolderPath = path.resolve(__dirname, 'data');
+const pathDatabase = path.join(absoluteDataFolderPath, 'database.json');
+const pathPreguntas = path.join(absoluteDataFolderPath, 'preguntas.json');
 const BLUE = 'blue';
 const GREEN = 'green';
 const Error_tablero_desconocido = {

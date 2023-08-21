@@ -18,7 +18,7 @@ const crearPartida = () => {
           showLoaderOnConfirm: true,
           backdrop: true,
           preConfirm: (name) => {
-            return fetch('/trivia/board', {
+            return fetch('https://trivia-unlp-pedrobelli.netlify.app/.netlify/functions/crearPartida', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

@@ -1,9 +1,8 @@
-const trivia = require('./trivia.js'); // Importa tu lógica de trivia
+const trivia = require('../trivia.js');
 
 exports.handler = async (event, context) => {
-  // Tu lógica para crear una partida
   const requestBody = JSON.parse(event.body);
-  const board = trivia.new(requestBody.nombre, requestBody.color);
+  const board = trivia.play(requestBody.boardId, requestBody.playerId, requestBody.respuesta);
   
   if (board.error) {
     return {
