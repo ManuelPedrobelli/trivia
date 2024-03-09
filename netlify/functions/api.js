@@ -9,7 +9,7 @@ const router = express.Router();
 router.post('/.netlify/functions/api/crearPartida', async (req, res) => {
   try {
     // Obtén la ruta absoluta al directorio 'data'
-    const dataFolderPath = path.resolve(__dirname, '..', 'data');
+    const dataFolderPath = path.resolve(__dirname, '..', '..', 'data');
     
     // Construye la ruta completa al archivo 'preguntas.json'
     const preguntasFilePath = path.join(dataFolderPath, 'preguntas.json');
