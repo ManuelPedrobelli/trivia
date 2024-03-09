@@ -6,7 +6,7 @@ const app = express();
 const router = express.Router();
 
 // Ruta para crear una partida
-router.post('/crearPartida', async (req, res) => {
+router.post('/api/crearPartida', async (req, res) => {
   // Construye la ruta absoluta a la carpeta 'data'
   const absoluteDataFolderPath = path.resolve(__dirname, '..', 'data');
   const pathPreguntas = path.join(absoluteDataFolderPath, 'preguntas.json');
@@ -23,7 +23,7 @@ router.post('/crearPartida', async (req, res) => {
 });
 
 // Ruta para consultar el estado de una partida
-router.get('/consultarPartida', async (req, res) => {
+router.get('/api/consultarPartida', async (req, res) => {
   const boardId = req.query.boardId;
   const playerId = req.query.playerId;
   
