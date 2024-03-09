@@ -7,7 +7,30 @@ const router = express.Router();
 
 // Ruta para crear una partida
 router.post('/.netlify/functions/api/crearPartida', async (req, res) => {
-  // Construye la ruta absoluta a la carpeta 'data'
+  try {
+    // Obtén la ruta absoluta al directorio 'data'
+    const dataFolderPath = path.resolve(__dirname, '..', 'data');
+    
+    // Construye la ruta completa al archivo 'preguntas.json'
+    const preguntasFilePath = path.join(dataFolderPath, 'preguntas.json');
+
+    // Lee el archivo 'preguntas.json'
+    const preguntasData = fs.readFileSync(preguntasFilePath, 'utf8');
+
+    // Tu lógica para crear una partida
+    const requestBody = req.body;
+    const board = trivia.new(requestBody.nombre, requestBody.color, preguntasData);
+  
+    if (board.error) {
+      res.status(400).json(board);
+    } else {
+      res.status(200).json(board);
+    }
+  } catch (error) {
+    console.error('Error al leer el archivo de preguntas:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+ /* // Construye la ruta absoluta a la carpeta 'data'
   const absoluteDataFolderPath = path.resolve(__dirname, '..', 'data');
   const pathPreguntas = path.join(absoluteDataFolderPath, 'preguntas.json');
 
@@ -19,7 +42,7 @@ router.post('/.netlify/functions/api/crearPartida', async (req, res) => {
     res.status(400).json(board);
   } else {
     res.status(200).json(board);
-  }
+  }*/
 });
 
 // Ruta para consultar el estado de una partida
