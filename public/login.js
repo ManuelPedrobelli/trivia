@@ -18,7 +18,7 @@ const crearPartida = () => {
           showLoaderOnConfirm: true,
           backdrop: true,
           preConfirm: (name) => {
-            return fetch('https://radiant-cheesecake-7080ef.netlify.app/.netlify/functions/api/crearPartida', {
+            return fetch('https://trivia-mp.netlify.app/.netlify/functions/api/crearPartida', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
