@@ -8,10 +8,9 @@ const router = express.Router();
 // Ruta para crear una partida
 router.post('/crearPartida', async (req, res) => {
   // Construye la ruta absoluta a la carpeta 'data'
-  const absoluteDataFolderPath = path.resolve(__dirname, '..', '..', 'data');
+  const absoluteDataFolderPath = path.resolve(__dirname, '..', 'data');
   const pathPreguntas = path.join(absoluteDataFolderPath, 'preguntas.json');
-  const pathData = path.join(absoluteDataFolderPath, 'data.json');
-  
+
   // Tu lógica para crear una partida
   const requestBody = req.body;
   const board = trivia.new(requestBody.nombre, requestBody.color, pathPreguntas);
