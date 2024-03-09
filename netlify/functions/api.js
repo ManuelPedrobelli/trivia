@@ -6,7 +6,7 @@ const app = express();
 const router = express.Router();
 
 // Ruta para crear una partida
-router.post('/api/crearPartida', async (req, res) => {
+router.post('/.netlify/functions/api/crearPartida', async (req, res) => {
   // Construye la ruta absoluta a la carpeta 'data'
   const absoluteDataFolderPath = path.resolve(__dirname, '..', 'data');
   const pathPreguntas = path.join(absoluteDataFolderPath, 'preguntas.json');
