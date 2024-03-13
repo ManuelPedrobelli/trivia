@@ -10,16 +10,15 @@ router.post('/.netlify/functions/api/crearPartida', async (req, res) => {
 
   const requestBody = req.body;
   const board = trivia.new(requestBody.nombre, requestBody.color);
-  console.log(res)
   if (board.error) {
     res.status(400).json(board);
   } else {
-    res.status(200).json(board);
+    res.json(board);
   }
 });
 
 // Ruta para consultar el estado de una partida
-router.get('/api/consultarPartida', async (req, res) => {
+router.get('/.netlify/functions/api/consultarPartida', async (req, res) => {
   const boardId = req.query.boardId;
   const playerId = req.query.playerId;
   
@@ -33,7 +32,7 @@ router.get('/api/consultarPartida', async (req, res) => {
 });
 
 // Ruta para realizar un movimiento en una partida
-router.post('/realizarMovimiento', async (req, res) => {
+router.post('/.netlify/functions/api/realizarMovimiento', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.play(requestBody.boardId, requestBody.playerId, requestBody.respuesta);
   
@@ -45,7 +44,7 @@ router.post('/realizarMovimiento', async (req, res) => {
 });
 
 // Ruta para preparar una partida
-router.post('/prepararPartida', async (req, res) => {
+router.post('/.netlify/functions/api/prepararPartida', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.prepare(requestBody.boardId, requestBody.playerId);
   
@@ -57,7 +56,7 @@ router.post('/prepararPartida', async (req, res) => {
 });
 
 // Ruta para unirse a una partida existente
-router.post('/unirsePartida', async (req, res) => {
+router.post('/.netlify/functions/api/unirsePartida', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.joinExisting(requestBody.boardId, requestBody.nombre);
   

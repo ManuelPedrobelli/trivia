@@ -18,7 +18,7 @@ const crearPartida = () => {
           showLoaderOnConfirm: true,
           backdrop: true,
           preConfirm: (name) => {
-            return fetch('https://trivia-mp.netlify.app/netlify/functions/api/crearPartida', {
+            return fetch('https://trivia-mp.netlify.app/api/crearPartida', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -30,8 +30,7 @@ const crearPartida = () => {
             })
             .then(response => response.json()) 
             .then(data => {
-              console.log(data);
-/*
+                console.log(data);
                 localStorage.setItem('gameData', JSON.stringify(data));
                 Swal.fire({
                     icon: 'success',
@@ -41,7 +40,6 @@ const crearPartida = () => {
                 }).then(() => {
                     window.location.href = '/trivia.html';
                 });
-                */
             })
             .catch(error => {
                 console.error(error);
