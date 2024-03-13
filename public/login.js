@@ -30,8 +30,9 @@ const crearPartida = () => {
             })
             .then(response => response.json()) 
             .then(data => {
+              console.log(data);
+/*
                 localStorage.setItem('gameData', JSON.stringify(data));
-                console.log(data);
                 Swal.fire({
                     icon: 'success',
                     title: 'Partida creada',
@@ -40,6 +41,7 @@ const crearPartida = () => {
                 }).then(() => {
                     window.location.href = '/trivia.html';
                 });
+                */
             })
             .catch(error => {
                 console.error(error);

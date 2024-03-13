@@ -10,7 +10,7 @@ router.post('/.netlify/functions/api/crearPartida', async (req, res) => {
 
   const requestBody = req.body;
   const board = trivia.new(requestBody.nombre, requestBody.color);
-  
+  console.log(res)
   if (board.error) {
     res.status(400).json(board);
   } else {
