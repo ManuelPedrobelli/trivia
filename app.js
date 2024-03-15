@@ -1,29 +1,29 @@
 const path = require('path');
 const trivia = require('../trivia.js'); // Asumiendo que trivia.js está en el mismo directorio
 const express = require('express');
-const serverless = require('serverless-http');
 const app = express();
-const router = express.Router();
 
 // Ruta para crear una partida
-router.post('/.netlify/functions/api/crearPartida', async (req, res) => {
-
+app.post('/api/crearPartida',  (req, res) => {
+  res('Success');
+  /*
   const requestBody = req.body;
   const board = trivia.new(requestBody.nombre, requestBody.color);
+
   if (board.error) {
     res.status(400).json(board);
   } else {
-    res.json(board);
-  }
+    res.status(200).json(board);
+  }*/
 });
 
 // Ruta para consultar el estado de una partida
-router.get('/.netlify/functions/api/consultarPartida', async (req, res) => {
+app.get('/api/consultarPartida', async (req, res) => {
   const boardId = req.query.boardId;
   const playerId = req.query.playerId;
   
   const board = trivia.poll(boardId, playerId);
-  
+
   if (board.error) {
     res.status(400).json(board);
   } else {
@@ -32,7 +32,7 @@ router.get('/.netlify/functions/api/consultarPartida', async (req, res) => {
 });
 
 // Ruta para realizar un movimiento en una partida
-router.post('/.netlify/functions/api/realizarMovimiento', async (req, res) => {
+app.post('/api/realizarMovimiento', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.play(requestBody.boardId, requestBody.playerId, requestBody.respuesta);
   
@@ -44,7 +44,7 @@ router.post('/.netlify/functions/api/realizarMovimiento', async (req, res) => {
 });
 
 // Ruta para preparar una partida
-router.post('/.netlify/functions/api/prepararPartida', async (req, res) => {
+app.post('/api/prepararPartida', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.prepare(requestBody.boardId, requestBody.playerId);
   
@@ -56,7 +56,7 @@ router.post('/.netlify/functions/api/prepararPartida', async (req, res) => {
 });
 
 // Ruta para unirse a una partida existente
-router.post('/.netlify/functions/api/unirsePartida', async (req, res) => {
+app.post('/api/unirsePartida', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.joinExisting(requestBody.boardId, requestBody.nombre);
   
@@ -68,8 +68,6 @@ router.post('/.netlify/functions/api/unirsePartida', async (req, res) => {
 });
 
 // Montar el router en la aplicación
-app.use('/.netlify/functions/api', router);
+module.exports = app;
 
 // Exportar la aplicación para Netlify Functions
-module.exports = app;
-module.exports.handler = serverless(app);

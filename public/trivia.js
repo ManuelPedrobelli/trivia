@@ -28,7 +28,7 @@ const prepararJugada = () => {
         playerId
     } = gameData;
 
-    fetch(`/trivia/board/${boardId}/prepare`, {
+    fetch(`/api/board/${boardId}/prepare`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -121,7 +121,7 @@ async function enviarRespuesta() {
         } = gameData;
         const respuesta = await obtenerRespuesta();
 
-        fetch(`/trivia/board/${boardId}`, {
+        fetch(`/api/board/${boardId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -182,7 +182,7 @@ async function enviarRespuesta() {
 }
 
 const getEstado = (boardId, playerId) => {
-    fetch(`/trivia/board/${boardId}?playerId=${playerId}`, {
+    fetch(`/api/board/${boardId}?playerId=${playerId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

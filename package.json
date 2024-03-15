@@ -5,8 +5,7 @@
   "main": "netlify/functions/api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon netlify/functions/api.js",
-    "build": "netlify deploy --prod"
+    "start": "nodemon netlify/functions/api.js"
   },
   "keywords": [
     "UNLP",
