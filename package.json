@@ -5,7 +5,7 @@
   "main": "netlify/functions/api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon netlify/functions/api.js"
+    "start": "nodemon app.js"
   },
   "keywords": [
     "UNLP",
@@ -14,7 +14,7 @@
     "Quiz",
     "Seminario JS"
   ],
-  "author": "Manuel Pedrobelli & Mateo Drake",
+  "author": "Manuel Pedrobelli",
   "license": "ISC",
   "dependencies": {
     "animate.css": "^4.1.1",
