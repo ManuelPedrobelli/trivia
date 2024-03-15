@@ -1,12 +1,10 @@
 const path = require('path');
-const trivia = require('../trivia.js'); // Asumiendo que trivia.js está en el mismo directorio
+const trivia = require('./trivia.js'); // Asumiendo que trivia.js está en el mismo directorio
 const express = require('express');
 const app = express();
 
 // Ruta para crear una partida
 app.post('/api/crearPartida',  (req, res) => {
-  res('Success');
-  /*
   const requestBody = req.body;
   const board = trivia.new(requestBody.nombre, requestBody.color);
 
@@ -14,7 +12,7 @@ app.post('/api/crearPartida',  (req, res) => {
     res.status(400).json(board);
   } else {
     res.status(200).json(board);
-  }*/
+  }
 });
 
 // Ruta para consultar el estado de una partida
