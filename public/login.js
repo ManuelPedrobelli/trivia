@@ -1,5 +1,19 @@
 const init = () => {
   document.getElementById('login-form').addEventListener('submit', unirsePartida);
+  fetch('/api/test')
+  .then(response => {
+    if (response.ok) {
+      return response.text();
+    } else {
+      throw new Error('Error en la solicitud.');
+    }
+  })
+  .then(data => {
+    console.log('Respuesta del servidor:', data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
 }
 
 const crearPartida = () => {

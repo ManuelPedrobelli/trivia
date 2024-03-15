@@ -15,6 +15,10 @@ app.post('/api/crearPartida',  (req, res) => {
   }
 });
 
+app.get('/api/test', (req, res) => {
+  res.send('Comunicación entre el front y el servidor correcta');
+});
+
 // Ruta para consultar el estado de una partida
 app.get('/api/consultarPartida', async (req, res) => {
   const boardId = req.query.boardId;
