@@ -3,7 +3,7 @@ const init = () => {
 }
 
 const crearPartida = () => {
-  fetch('/api/crearPartida')
+  fetch('https://trivia-lime.vercel.app/api/crearPartida')
   .then(response => {
     if (response.ok) {
       return response.text();
