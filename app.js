@@ -10,7 +10,7 @@ const corsOptions = {
   allowedHeaders: 'Content-Type', // Permitir el encabezado Content-Type
 };
 // Habilitar CORS para todas las rutas
-app.use(corsOptions());
+app.use(cors(corsOptions));
 
 // Servir archivos estáticos desde la carpeta 'public' en la ruta raíz '/'
 app.use('/', express.static(path.join(__dirname, 'public')));
