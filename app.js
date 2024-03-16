@@ -17,7 +17,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 
 
 // Ruta para crear una partida
-app.get('/api/crearPartida', (req, res) => {
+app.post('/api/crearPartida', (req, res) => {
   //res.send('Comunicación entre el front y el servidor correcta');
   const requestBody = req.body;
   const board = trivia.new(requestBody.nombre, requestBody.color);
