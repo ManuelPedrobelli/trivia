@@ -4,9 +4,13 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-
+const corsOptions = {
+  origin: '*', // Permitir solicitudes desde cualquier origen
+  methods: 'GET,POST', // Permitir solicitudes GET y POST
+  allowedHeaders: 'Content-Type', // Permitir el encabezado Content-Type
+};
 // Habilitar CORS para todas las rutas
-app.use(cors());
+app.use(corsOptions());
 
 // Servir archivos estáticos desde la carpeta 'public' en la ruta raíz '/'
 app.use('/', express.static(path.join(__dirname, 'public')));
