@@ -1,19 +1,5 @@
 const init = () => {
   document.getElementById('login-form').addEventListener('submit', unirsePartida);
-  fetch('/api/test')
-  .then(response => {
-    if (response.ok) {
-      return response.text();
-    } else {
-      throw new Error('Error en la solicitud.');
-    }
-  })
-  .then(data => {
-    console.log('Respuesta del servidor:', data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
 }
 
 const crearPartida = () => {
@@ -44,8 +30,7 @@ const crearPartida = () => {
             })
             .then(response => response.json()) 
             .then(data => {
-                console.log(JSON.stringify(data));
-                /*localStorage.setItem('gameData', JSON.stringify(data));
+                localStorage.setItem('gameData', JSON.stringify(data));
                 Swal.fire({
                     icon: 'success',
                     title: 'Partida creada',
@@ -53,7 +38,7 @@ const crearPartida = () => {
                     backdrop: true,
                 }).then(() => {
                     window.location.href = '/trivia.html';
-                });*/
+                });
             })
             .catch(error => {
                 console.error(error);
