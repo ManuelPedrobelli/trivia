@@ -1,20 +1,17 @@
 const path = require('path');
 const trivia = require('./trivia.js'); // Asumiendo que trivia.js está en el mismo directorio
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
 
-// Ruta para crear una partida
-/*app.post('/api/crearPartida',  (req, res) => {
-  const requestBody = req.body;
-  const board = trivia.new(requestBody.nombre, requestBody.color);
+// Habilitar CORS para todas las rutas
+app.use(cors());
 
-  if (board.error) {
-    res.status(400).json(board);
-  } else {
-    res.status(200).json(board);
-  }
-});
-*/
+// Servir archivos estáticos desde la carpeta 'public' en la ruta raíz '/'
+app.use('/', express.static(path.join(__dirname, 'public')));
+
+// Ruta para crear una partida
 app.get('/api/crearPartida', (req, res) => {
   res.send('Comunicación entre el front y el servidor correcta');
 });
@@ -69,7 +66,8 @@ app.post('/api/unirsePartida', async (req, res) => {
   }
 });
 
-// Montar el router en la aplicación
-module.exports = app;
+// Escuchar en el puerto 3000
+app.listen(3000, () => console.log("Server ready on port 3000."));
 
 // Exportar la aplicación para Netlify Functions
+module.exports = app;
