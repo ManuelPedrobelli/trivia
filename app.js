@@ -71,7 +71,7 @@ app.post('/api/unirsePartida', async (req, res) => {
 });
 
 // Escuchar en el puerto 3000
-app.listen(3000, () => console.log("Server ready on port 3000."));
+app.listen(3001, () => console.log("Server ready on port 3000."));
 
 // Exportar la aplicación para Netlify Functions
 module.exports = app;
