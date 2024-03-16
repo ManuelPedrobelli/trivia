@@ -15,9 +15,18 @@ app.use(cors(corsOptions));
 // Servir archivos estáticos desde la carpeta 'public' en la ruta raíz '/'
 app.use('/', express.static(path.join(__dirname, 'public')));
 
+
 // Ruta para crear una partida
 app.get('/api/crearPartida', (req, res) => {
-  res.send('Comunicación entre el front y el servidor correcta');
+  //res.send('Comunicación entre el front y el servidor correcta');
+  const requestBody = req.body;
+  const board = trivia.new(requestBody.nombre, requestBody.color);
+
+  if (board.error) {
+    res.status(400).json(board);
+  } else {
+    res.status(200).json(board);
+  }
 });
 
 // Ruta para consultar el estado de una partida
@@ -71,7 +80,7 @@ app.post('/api/unirsePartida', async (req, res) => {
 });
 
 // Escuchar en el puerto 3000
-app.listen(3001, () => console.log("Server ready on port 3000."));
+app.listen(3001, () => console.log("Server ready on port 3001."));
 
 // Exportar la aplicación para Netlify Functions
 module.exports = app;

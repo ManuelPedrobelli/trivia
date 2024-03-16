@@ -3,21 +3,7 @@ const init = () => {
 }
 
 const crearPartida = () => {
-  fetch('/api/crearPartida')
-  .then(response => {
-    if (response.ok) {
-      return response.text();
-    } else {
-      throw new Error('Error en la solicitud.');
-    }
-  })
-  .then(data => {
-    console.log('Respuesta del servidor:', data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-   /* mostrarSeleccionColor().then((result) => {
+    mostrarSeleccionColor().then((result) => {
       if (result.isConfirmed) {
         const selectedColor = result.value;
         Swal.fire({
@@ -66,7 +52,7 @@ const crearPartida = () => {
             allowOutsideClick: () => !Swal.isLoading()
         });
         };
-    });*/
+    });
 };
   
 async function unirsePartida(event) {
