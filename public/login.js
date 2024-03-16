@@ -3,7 +3,7 @@ const init = () => {
 }
 
 const crearPartida = () => {
-  fetch('/api/test')
+  fetch('/api/crearPartida')
   .then(response => {
     if (response.ok) {
       return response.text();
