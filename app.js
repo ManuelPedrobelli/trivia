@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 // Ruta para crear una partida
-app.post('/api/crearPartida',  (req, res) => {
+/*app.post('/api/crearPartida',  (req, res) => {
   const requestBody = req.body;
   const board = trivia.new(requestBody.nombre, requestBody.color);
 
@@ -14,8 +14,8 @@ app.post('/api/crearPartida',  (req, res) => {
     res.status(200).json(board);
   }
 });
-
-app.get('/api/test', (req, res) => {
+*/
+app.get('/api/crearPartida', (req, res) => {
   res.send('Comunicación entre el front y el servidor correcta');
 });
 
