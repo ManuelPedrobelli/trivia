@@ -426,43 +426,46 @@ let initialBoard = {
     usadas: [],
     estadoRespuesta: false,
 };
-
 function newTrivia(nombre, color) {
-    if (!fs.existsSync(pathDatabase)) {
-        fs.writeFileSync(pathDatabase, JSON.stringify([]));
-    }
-    let trivia = newGame();
-    id = generateID();
-    trivia.boardId = generateID();
-    if(color == 'verde'){
-        trivia.greenName = nombre;
-        trivia.greenId = id
-    }else{
-        trivia.blueName = nombre;
-        trivia.blueId = id; 
-    }
-    saveTrivia(trivia);
-    return triviaDTO(trivia, id);
+  if (!fs.existsSync(pathDatabase)) {
+      fs.writeFileSync(pathDatabase, JSON.stringify([]));
+  }
+  let trivia = newGame();
+  id = generateID();
+  trivia.boardId = generateID();
+  // Comprobamos si el color es verde
+  if(color == 'verde'){
+      trivia.greenName = nombre;
+      trivia.greenId = id
+  } else {
+      // Si no es verde, asignamos el nombre a blueName
+      trivia.blueName = (nombre === 'blue') ? '' : nombre;
+      trivia.blueId = id; 
+  }
+  saveTrivia(trivia);
+  return triviaDTO(trivia, id);
 }
 
- function joinExistingTrivia(boardId, nombre) {
-/*     let trivia = findBy(t => t.boardId == boardId && !t.greenId); */
-    let trivia = findBy(t => t.boardId == boardId);
-    if (trivia) {
-        id = generateID();
-        if(!trivia.greenName){
-            trivia.greenName = nombre;
-            trivia.greenId = id;
-        }else{
-            trivia.blueName = nombre;
-            trivia.blueId = id;
-        }
-        saveTrivia(trivia);
-        return triviaDTO(trivia, id);
-    } else {
-        return Error_tablero_desconocido;
-    }
-} 
+function joinExistingTrivia(boardId, nombre) {
+  // Buscamos el tablero existente con el ID proporcionado
+  let trivia = findBy(t => t.boardId == boardId);
+  if (trivia) {
+      id = generateID();
+      // Si greenName no está definido, asignamos el nombre al jugador verde
+      if(!trivia.greenName){
+          trivia.greenName = nombre;
+          trivia.greenId = id;
+      } else {
+          // Si greenName ya está definido, asignamos el nombre al jugador azul
+          trivia.blueName = (nombre === 'blue') ? '' : nombre;
+          trivia.blueId = id;
+      }
+      saveTrivia(trivia);
+      return triviaDTO(trivia, id);
+  } else {
+      return Error_tablero_desconocido;
+  }
+}
 
 function prepararJugada(boardId, playerId) {
     let trivia = readTrivia(boardId);
@@ -485,6 +488,7 @@ function prepararJugada(boardId, playerId) {
 
 function play(boardId, playerId, respuesta) {
     let trivia = readTrivia(boardId);
+    console.log(trivia);
     if (trivia && trivia.blueId && trivia.greenId) {
         if (isMyTurn(trivia, playerId)) {
             if (isWinner(trivia)) {

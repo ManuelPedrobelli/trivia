@@ -2,8 +2,8 @@ const path = require('path');
 const trivia = require('./trivia.js'); // Asumiendo que trivia.js está en el mismo directorio
 const express = require('express');
 const cors = require('cors');
-
 const app = express();
+
 const corsOptions = {
   origin: '*', // Permitir solicitudes desde cualquier origen
   methods: 'GET,POST', // Permitir solicitudes GET y POST
@@ -11,14 +11,13 @@ const corsOptions = {
 };
 // Habilitar CORS para todas las rutas
 app.use(cors(corsOptions));
-
+app.use(express.json());
 // Servir archivos estáticos desde la carpeta 'public' en la ruta raíz '/'
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 
 // Ruta para crear una partida
 app.post('/api/crearPartida', (req, res) => {
-  //res.send('Comunicación entre el front y el servidor correcta');
   const requestBody = req.body;
   const board = trivia.new(requestBody.nombre, requestBody.color);
 
@@ -30,8 +29,8 @@ app.post('/api/crearPartida', (req, res) => {
 });
 
 // Ruta para consultar el estado de una partida
-app.get('/api/consultarPartida', async (req, res) => {
-  const boardId = req.query.boardId;
+app.get('/api/board/:boardId', async (req, res) => {
+  const boardId = req.params.boardId;
   const playerId = req.query.playerId;
   
   const board = trivia.poll(boardId, playerId);
@@ -44,9 +43,9 @@ app.get('/api/consultarPartida', async (req, res) => {
 });
 
 // Ruta para realizar un movimiento en una partida
-app.post('/api/realizarMovimiento', async (req, res) => {
+app.post('/api/board/:boardId/play', async (req, res) => {
   const requestBody = req.body;
-  const board = trivia.play(requestBody.boardId, requestBody.playerId, requestBody.respuesta);
+  const board = trivia.play(req.params.boardId, requestBody.playerId, requestBody.respuesta);
   
   if (board.error) {
     res.status(400).json(board);
@@ -55,11 +54,10 @@ app.post('/api/realizarMovimiento', async (req, res) => {
   }
 });
 
-// Ruta para preparar una partida
-app.post('/api/prepararPartida', async (req, res) => {
+// Ruta pacra preparar una partida
+app.post('/api/board/:boardId/prepare', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.prepare(requestBody.boardId, requestBody.playerId);
-  
   if (board.error) {
     res.status(400).json(board);
   } else {
@@ -68,9 +66,10 @@ app.post('/api/prepararPartida', async (req, res) => {
 });
 
 // Ruta para unirse a una partida existente
-app.post('/api/unirsePartida', async (req, res) => {
-  const requestBody = req.body;
-  const board = trivia.joinExisting(requestBody.boardId, requestBody.nombre);
+app.patch('/api/board/:boardId', async (req, res) => {
+  const name = req.body;
+  const boardID = req.params.boardId;
+  const board = trivia.joinExisting(boardID, name);
   
   if (board.error) {
     res.status(400).json(board);

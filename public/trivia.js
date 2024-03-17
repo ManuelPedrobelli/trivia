@@ -121,7 +121,7 @@ async function enviarRespuesta() {
         } = gameData;
         const respuesta = await obtenerRespuesta();
 
-        fetch(`/api/board/${boardId}`, {
+        fetch(`/api/board/${boardId}/play`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -140,6 +140,7 @@ async function enviarRespuesta() {
                 }
             })
             .then(data => {
+                console.log(data);
                 if (!data.winner) {
                     const alertRes = data.estadoRespuesta ? '¡Respuesta Correcta!' : '¡Respuesta Incorrecta!';
                     if (data.estadoRespuesta) {
@@ -196,6 +197,7 @@ const getEstado = (boardId, playerId) => {
             }
         })
         .then(data => {
+            console.log(data);
             if (!data.winner) {
                 document.getElementById('p1').textContent = data.blueName;
                 document.getElementById('p2').textContent = data.greenName;
