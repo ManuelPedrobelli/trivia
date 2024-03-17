@@ -2,7 +2,8 @@
     "version": 2,
     "functions": {
       "api": {
-        "handler": "app.js"
+        "runtime": "nodejs14.x",
+        "memory": 128
       }
     },
     "rewrites": [
