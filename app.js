@@ -78,8 +78,9 @@ app.patch('/api/board/:boardId', async (req, res) => {
   }
 });
 
-// Escuchar en el puerto 3000
-app.listen(3001, () => console.log("Server ready on port 3001."));
+// Escuchar en el puerto asignado por Vercel
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server ready on port ${PORT}.`));
 
-// Exportar la aplicación para Netlify Functions
+// Exportar la aplicación para Vercel
 module.exports = app;
