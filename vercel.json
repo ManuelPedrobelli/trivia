@@ -1,13 +1,1 @@
-{
-    "version": 2,
-    "functions": {
-      "api": {
-        "runtime": "nodejs14.x",
-        "memory": 128
-      }
-    },
-    "rewrites": [
-      { "source": "/api/(.*)", "function": "api" }
-    ]
-  }
-  
+{ "version": 2, "rewrites": [{  "source": "/(.*)", "destination": "/api" }] }
