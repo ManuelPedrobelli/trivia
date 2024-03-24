@@ -17,7 +17,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 
 
 // Ruta para crear una partida
-app.post('/api/crearPartida', (req, res) => {
+app.post('/crearPartida', (req, res) => {
   const requestBody = req.body;
   const board = trivia.new(requestBody.nombre, requestBody.color);
 
@@ -29,7 +29,7 @@ app.post('/api/crearPartida', (req, res) => {
 });
 
 // Ruta para consultar el estado de una partida
-app.get('/api/board/:boardId', async (req, res) => {
+app.get('/board/:boardId', async (req, res) => {
   const boardId = req.params.boardId;
   const playerId = req.query.playerId;
   
@@ -43,7 +43,7 @@ app.get('/api/board/:boardId', async (req, res) => {
 });
 
 // Ruta para realizar un movimiento en una partida
-app.post('/api/board/:boardId/play', async (req, res) => {
+app.post('/board/:boardId/play', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.play(req.params.boardId, requestBody.playerId, requestBody.respuesta);
   
@@ -55,7 +55,7 @@ app.post('/api/board/:boardId/play', async (req, res) => {
 });
 
 // Ruta pacra preparar una partida
-app.post('/api/board/:boardId/prepare', async (req, res) => {
+app.post('/board/:boardId/prepare', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.prepare(requestBody.boardId, requestBody.playerId);
   if (board.error) {
@@ -66,7 +66,7 @@ app.post('/api/board/:boardId/prepare', async (req, res) => {
 });
 
 // Ruta para unirse a una partida existente
-app.patch('/api/board/:boardId', async (req, res) => {
+app.patch('/board/:boardId', async (req, res) => {
   const name = req.body;
   const boardID = req.params.boardId;
   const board = trivia.joinExisting(boardID, name);
