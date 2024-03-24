@@ -18,7 +18,7 @@ const crearPartida = () => {
           showLoaderOnConfirm: true,
           backdrop: true,
           preConfirm: (name) => {
-            return fetch('/api/crearPartida', {
+            return fetch('/crearPartida', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ async function unirsePartida(event) {
         showLoaderOnConfirm: true,
         preConfirm: async (name) => {
             try {
-                const response = await fetch(`/api/board/${boardId}`, {
+                const response = await fetch(`/board/${boardId}`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'

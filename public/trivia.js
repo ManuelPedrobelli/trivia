@@ -28,7 +28,7 @@ const prepararJugada = () => {
         playerId
     } = gameData;
 
-    fetch(`/api/board/${boardId}/prepare`, {
+    fetch(`/board/${boardId}/prepare`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -121,7 +121,7 @@ async function enviarRespuesta() {
         } = gameData;
         const respuesta = await obtenerRespuesta();
 
-        fetch(`/api/board/${boardId}/play`, {
+        fetch(`/board/${boardId}/play`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -183,7 +183,7 @@ async function enviarRespuesta() {
 }
 
 const getEstado = (boardId, playerId) => {
-    fetch(`/api/board/${boardId}?playerId=${playerId}`, {
+    fetch(`/board/${boardId}?playerId=${playerId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
