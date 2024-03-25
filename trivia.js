@@ -11,7 +11,6 @@ module.exports = {
 };
 
 const pathDatabase = path.join('public','data','database.json');
-const pathPreguntas = path.join('public','data','preguntas.json');
 
 const totalPreguntas = [
     {
@@ -431,7 +430,8 @@ function newTrivia(nombre, color) {
       fs.writeFileSync(pathDatabase, JSON.stringify([]));
   }
   let trivia = newGame();
-  id = generateID();
+  //id = crypto.randomBytes(16).toString('hex');
+  let id = generateID();
   trivia.boardId = generateID();
   // Comprobamos si el color es verde
   if(color == 'verde'){
@@ -450,7 +450,7 @@ function joinExistingTrivia(boardId, nombre) {
   // Buscamos el tablero existente con el ID proporcionado
   let trivia = findBy(t => t.boardId == boardId);
   if (trivia) {
-      id = generateID();
+      let id = generateID();
       // Si greenName no está definido, asignamos el nombre al jugador verde
       if(!trivia.greenName){
           trivia.greenName = nombre;

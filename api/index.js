@@ -1,20 +1,13 @@
+require("dotenv").config();
 const path = require('path');
-const trivia = require('./trivia.js'); // Asumiendo que trivia.js está en el mismo directorio
+const trivia = require('../trivia.js'); // Asumiendo que trivia.js está en el mismo directorio
 const express = require('express');
-const cors = require('cors');
+const PORT = process.env.PORT || 3000;
 const app = express();
 
-const corsOptions = {
-  origin: '*', // Permitir solicitudes desde cualquier origen
-  methods: 'GET,POST', // Permitir solicitudes GET y POST
-  allowedHeaders: 'Content-Type', // Permitir el encabezado Content-Type
-};
-// Habilitar CORS para todas las rutas
-app.use(cors(corsOptions));
 app.use(express.json());
 // Servir archivos estáticos desde la carpeta 'public' en la ruta raíz '/'
 app.use('/', express.static(path.join(__dirname, 'public')));
-
 
 // Ruta para crear una partida
 app.post('/crearPartida', (req, res) => {
@@ -79,7 +72,7 @@ app.patch('/board/:boardId', async (req, res) => {
 });
 
 // Escuchar en el puerto asignado por Vercel
-const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => console.log(`Server ready on port ${PORT}.`));
 
 // Exportar la aplicación para Vercel
