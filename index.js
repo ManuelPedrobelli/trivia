@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 const path = require('path');
 const trivia = require('./trivia.js'); // Asumiendo que trivia.js está en el mismo directorio
 const express = require('express');
