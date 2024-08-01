@@ -9,31 +9,32 @@
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
       </head>
    </head>
-   <body onload="init()">
+  
+   <body onload="init()" class="animate__animated animate__slideInUp">
       <div id="contenedor" class="animate__animated animate__slideInUp" >
-         <div id="contenedor-1">
-            <h1>Trivia</h1>
-            <div class="crear">
-               <h2>Crear una nueva partidaaaa</h2>
-               <button class="boton" id="boton-crear" type="submit" onclick="crearPartida()">Crear</button>
-            </div>
-            <div class="unirse" >
-               <h2>Unirse a una partida existente </h2>
-               <form id="login-form" action="#" >
-                  <input type="text" placeholder="Pega el codigo de mesa aqui" width=300 id="boardId" name="boardId" required autocomplete="off">
-                  <button class="boton" type="submit">Unirme</button>
-               </form>
-            </div>
+         
+         <h1 class="title">¡Bienvenido a Trivia!</h3>
+         <p class="sub-title">Desafía a tus amigos y sé el primero en llegar a la casilla de salida para ganar<br> ¡Buena suerte!</p>
+         
+         <div id="buttons">
+
+             <button class="boton-login" id="boton-crear" type="submit" onclick="crearPartida()">Crear una nueva partida</button>            
+             
+             <button class="boton-login" id="join-button">Unirme a una partida</button>            
+         
+         </div>  
+         
+          <div class="invisible" id="div-join">
+
+            <form id="login-form"  action="#" >
+               <input type="text" placeholder="Pega el codigo de mesa aqui" class="input-login" width=300 id="boardId" name="boardId"  required autocomplete="off">
+               <button class="boton-connect" type="submit">Conectar</button>
+            </form>
          </div>
-         <div id="contenedor-2">
-            <h3>¡Bienvenido a Trivia!</h3>
-            <p>Desafía a tus amigos y sé el primero en llegar a la casilla de salida para ganar. ¡Buena suerte!
-            </p>
-            <h3>Descripción del juego</h3>
-            <p> Se tiene un tablero con un dado, una casilla de entrada, una casilla de salida y 20 casilleros intermedios. Cada jugada incluye una pregunta y un conjunto de respuestas posibles con una única respuesta correcta. Gana el jugador que llega primero a la casilla de salida. </p>
-         </div>
+               
       </div>
-      <footer>grupo-20</footer>
+      
+      
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
       <script src="login.js"></script>
    </body>

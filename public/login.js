@@ -1,6 +1,22 @@
 const init = () => {
+  
   document.getElementById('login-form').addEventListener('submit', unirsePartida);
+  
+  let divJoin  = document.getElementById('div-join');
+  
+  let toggleButton = document.getElementById('join-button');
+
+  toggleButton.addEventListener('click', () => toggle(divJoin,toggleButton)); 
 }
+  function toggle (divJoin,toggleButton) {
+    if (divJoin.classList.contains('invisible')) {
+      divJoin.classList.remove('invisible');
+      toggleButton.innerHTML = 'Ocultar';
+    } else {
+      divJoin.classList.add('invisible');
+      toggleButton.innerHTML= 'Unirse a una partida';
+    }
+  }
 
 const crearPartida = () => {
     mostrarSeleccionColor().then((result) => {
