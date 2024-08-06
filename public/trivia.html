@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="icon" href="../public/img/peakpx.jpg">
-      <title>Trivia!</title>
+      <title>Trivia</title>
       <link rel="stylesheet" href="trivia.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +16,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
    </head>
+
    <body onload="init()">
 
       <div id="contenedor_main" class="animate__animated animate__slideInUp">
@@ -25,32 +26,32 @@
             <div id="cont-1">
                <div id="contenedor-player">
                   <p class="player" id="p1"></p>
-                  <p class="aux casillero" data-pos="0" id="casillero-0">LARGADA</p>
+                  <p class="aux casillero" data-pos="0" id="casillero-0">Start</p>
                   <p class="player" id="p2"></p>
                </div>
-               <div class="tablero">
-                  <div data-pos="1"  class="casillero">1</div>
-                  <div data-pos="2" class="casillero">2</div>
-                  <div data-pos="3" class="casillero">3</div>
-                  <div data-pos="4" class="casillero">4</div>
-                  <div data-pos="5" class="casillero">5</div>
-                  <div data-pos="6" class="casillero">6</div>
-                  <div data-pos="7" class="casillero">7</div>
-                  <div data-pos="8" class="casillero">8</div>
-                  <div data-pos="9" class="casillero">9</div>
-                  <div data-pos="10" class="casillero">10</div>
-                  <div data-pos="11" class="casillero">11</div>
-                  <div data-pos="12" class="casillero">12</div>
-                  <div data-pos="13" class="casillero">13</div>
-                  <div data-pos="14" class="casillero">14</div>
-                  <div data-pos="15" class="casillero">15</div>
-                  <div data-pos="16" class="casillero">16</div>
-                  <div data-pos="17" class="casillero">17</div>
-                  <div data-pos="18" class="casillero">18</div>
-                  <div data-pos="19" class="casillero">19</div>
-                  <div data-pos="20" class="casillero">20</div>
+               <div id="tablero">
+                  <div data-pos="1"  class="casillero"></div>
+                  <div data-pos="2" class="casillero"></div>
+                  <div data-pos="3" class="casillero"></div>
+                  <div data-pos="4" class="casillero"></div>
+                  <div data-pos="5" class="casillero"></div>
+                  <div data-pos="6" class="casillero"></div>
+                  <div data-pos="7" class="casillero"></div>
+                  <div data-pos="8" class="casillero"></div>
+                  <div data-pos="9" class="casillero"></div>
+                  <div data-pos="10" class="casillero"></div>
+                  <div data-pos="11" class="casillero"></div>
+                  <div data-pos="12" class="casillero"></div>
+                  <div data-pos="13" class="casillero"></div>
+                  <div data-pos="14" class="casillero"></div>
+                  <div data-pos="15" class="casillero"></div>
+                  <div data-pos="16" class="casillero"></div>
+                  <div data-pos="17" class="casillero"></div>
+                  <div data-pos="18" class="casillero"></div>
+                  <div data-pos="19" class="casillero"></div>
+                  <div data-pos="20" class="casillero"></div>
                </div>
-               <p class="aux casillero" data-pos="21" id="casillero-21">GANADOR</p>
+               <p class="aux casillero" data-pos="21" id="casillero-21">Winner</p>
             </div>
            
             <div id="cont-2">

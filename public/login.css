@@ -51,7 +51,7 @@ body {
   border-radius: 100px;
   width: 330px;
   height: 100px;
-  background: url("../img/button-bg.png") no-repeat scroll 0 0 transparent;
+  background: url("../public/img/button-bg.png") no-repeat scroll 0 0 transparent;
   background-size: cover;
   transition: transform 0.3s ease;
 }
