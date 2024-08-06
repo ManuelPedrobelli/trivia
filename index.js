@@ -1,15 +1,13 @@
 
 const path = require('path');
-const trivia = require('./trivia.js'); // Asumiendo que trivia.js está en el mismo directorio
+const trivia = require('./trivia.js');
 const express = require('express');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
-// Servir archivos estáticos desde la carpeta 'public' en la ruta raíz '/'
 app.use('/', express.static(path.join(__dirname, 'public')));
 
-// Ruta para crear una partida
 app.post('/crearPartida', (req, res) => {
   const requestBody = req.body;
   const board = trivia.new(requestBody.nombre, requestBody.color);
@@ -21,7 +19,6 @@ app.post('/crearPartida', (req, res) => {
   }
 });
 
-// Ruta para consultar el estado de una partida
 app.get('/board/:boardId', async (req, res) => {
   const boardId = req.params.boardId;
   const playerId = req.query.playerId;
@@ -35,7 +32,6 @@ app.get('/board/:boardId', async (req, res) => {
   }
 });
 
-// Ruta para realizar un movimiento en una partida
 app.post('/board/:boardId/play', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.play(req.params.boardId, requestBody.playerId, requestBody.respuesta);
@@ -47,7 +43,6 @@ app.post('/board/:boardId/play', async (req, res) => {
   }
 });
 
-// Ruta pacra preparar una partida
 app.post('/board/:boardId/prepare', async (req, res) => {
   const requestBody = req.body;
   const board = trivia.prepare(requestBody.boardId, requestBody.playerId);
@@ -58,7 +53,6 @@ app.post('/board/:boardId/prepare', async (req, res) => {
   }
 });
 
-// Ruta para unirse a una partida existente
 app.patch('/board/:boardId', async (req, res) => {
   const name = req.body;
   const boardID = req.params.boardId;
@@ -71,9 +65,8 @@ app.patch('/board/:boardId', async (req, res) => {
   }
 });
 
-// Escuchar en el puerto asignado por Vercel
+
 
 app.listen(PORT, () => console.log(`Server ready on port ${PORT}.`));
 
-// Exportar la aplicación para Vercel
 module.exports = app;

@@ -26,7 +26,7 @@ const prepararJugada = () => {
     const {
         boardId,
         playerId
-    } = gameData;
+          } = gameData;
 
     fetch(`/board/${boardId}/prepare`, {
             method: 'POST',
@@ -52,7 +52,7 @@ const prepararJugada = () => {
                 document.getElementById('boton-dado').removeEventListener('click', prepararJugada);
                 document.getElementById('img-dado').classList.add('animate__rollIn');
                 
-                setTimeout(function() { // 1seg delay para ver animacion dado
+                setTimeout(function() { 
                     document.getElementById('contenedor-opciones').style.display = 'block';
 
                     Swal.fire({
