@@ -158,9 +158,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     border-radius: 10px;
-    margin-right: 1rem;
 }
 
 #pregunta-actual {
@@ -186,8 +185,10 @@ body {
     border-radius: 10px;
     width: 100%;
     padding: 5px 0;
-  }
-
+}
+.opcion input {
+    margin-left: 10px;
+}
 #boton-contestar {
     padding: 10px;
     border: 2px solid black;
@@ -198,6 +199,9 @@ body {
     font-size: 16px;
     color: white;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
